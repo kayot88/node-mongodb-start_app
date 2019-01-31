@@ -7,8 +7,10 @@ mongoose.connection.on('error', (err) => {
   console.log(`oh no 💩 ${err}`);
 });
 
+require('./models/Store');
+
 const app = require('./app');
 app.set('port', 7777 || process.env.PORT);
 const server = app.listen(app.get('port'), () => {
   console.log(`server is running on 🚀${server.address().port}`);
-})
+});
